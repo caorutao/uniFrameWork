@@ -3,7 +3,7 @@
 		<uni-card :is-full="false" is-shadow title="card组件" sub-title="组件测试">
 			<view class="cardContent">
 					<image class="logo" src="/static/logo.png"></image>
-					<text class="title">{{title}}江中</text>
+					<text class="title">{{title}}江中asdfasdfa</text>
 			</view>
 		</uni-card>
 		
