@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2020", "DOM"],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    
+    // 核心：TS兼容JS的关键配置
+    "allowJs": true,
+    "strict": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    
+    // UniApp专用类型
+    "types": ["@dcloudio/types", "@dcloudio/uni-app"]
+  },
+  "include": [  
+	"**/*.ts",
+	"**/*.d.ts",
+	"**/*.js",
+	"**/*.vue",
+	"**/*.nvue",
+	"**/*.json"],
+  "exclude": ["node_modules", "unpackage", "dist", "platforms", "mock"]
+}
