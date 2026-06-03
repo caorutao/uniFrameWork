@@ -1,5 +1,5 @@
 <template>
-	<view class="content">
+	<view class="flex-col-center">
 		<uni-card :is-full="false" is-shadow title="card组件" sub-title="组件测试">
 			<view class="cardContent">
 					<image class="logo" src="/static/logo.png"></image>
@@ -63,37 +63,28 @@
 	
 	let timer = null;
 	onMounted(()=>{
-		console.log("onMounted执行了，此时所有组件已经加载完毕");
 		timer = setTimeout(()=>{ 
 			userStore.setUserName("onMounted执行完毕,所有页面已经渲染完毕后的title值");
 		}, 3000)
 	})
 	
 	onUnmounted(()=>{
-		console.log("onUnmounted执行了，清除定时器");
 		clearTimeout(timer);
 		timer = null;
 	})
 	
 	onActivated(async () => {
-		console.log("onActivated执行了");
 		await new Promise((resolve)=>setTimeout(resolve, 3000));
 		userStore.setUserName('返回本页面的userName值');
 	})
 	
 	onDeactivated(() => {
-		console.log("onDeactivated执行了");
+		//console.log("onDeactivated执行了");
 	})
 	
 </script>
 
 <style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-	
 	.cardContent {
 		display: flex;
 		flex-direction: column;

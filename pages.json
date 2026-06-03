@@ -3,13 +3,13 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-内置组件"
+				"navigationBarTitleText": "海信商城"
 			}
 		},
 		{
 			"path": "pages/api/index",
 			"style": {
-				"navigationBarTitleText": "uni-接口"
+				"navigationBarTitleText": "海信商城-分类窗口"
 			}
 		},
 		{
@@ -21,7 +21,25 @@
 		{
 			"path": "pages/template/index",
 			"style": {
-				"navigationBarTitleText": "uni-模板"
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "uni_modules/login/list-item",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "uni_modules/login/mine-list",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "uni_modules/login/DraggableFab",
+			"style": {
+				"navigationBarTitleText": ""
 			}
 		}
 	],
@@ -40,23 +58,23 @@
 				"pagePath": "pages/index/index",
 				"iconPath": "/static/component.svg",
 				"selectedIconPath": "/static/componentHL.svg",
-				"text": "内置组件"
+				"text": "首页"
 			},
 			{
 				"pagePath": "pages/api/index",
 				"iconPath": "static/api.svg",
 				"selectedIconPath": "static/apiHL.svg",
-				"text": "接口"
+				"text": "分类"
 			}, {
 				"pagePath": "pages/extui/index",
 				"iconPath": "static/extui.png",
 				"selectedIconPath": "static/extuiHL.png",
-				"text": "扩展组件"
+				"text": "购物车"
 			}, {
 				"pagePath": "pages/template/index",
 				"iconPath": "static/template.png",
 				"selectedIconPath": "static/templateHL.png",
-				"text": "模板"
+				"text": "我的"
 			}
 		]
 	},
