@@ -67,6 +67,9 @@ export const useUserStore = defineStore('user', {
 	}, 
 	//持久化
 	persist:{
-		paths: ['userName', 'token', 'isLogin']
+		storage: {
+			getItem: uni.getStorageSync,
+			setItem: uni.setStorageSync
+		}
 	}	
 })

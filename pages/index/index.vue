@@ -17,7 +17,7 @@
 
 <script setup>
 	import { computed, onActivated, onDeactivated, onMounted, onUnmounted, onUpdated } from 'vue';
-	import { t, rt, getCurrentLocale, setlocale } from '@/common/i18n/i18n.js';
+	import { t, rt, getCurrentLocale, setlocale, updateTabbarText } from '@/common/i18n/i18n.js';
 	import { useUserStore } from '@/store/user/user.js';
 	import { onReady, onShow } from '@dcloudio/uni-app';
 	import { requestMock } from '@/mock/API.js'
@@ -25,14 +25,30 @@
 	
 	const title = computed(() => rt("tabbar"));
 		
-	const changeLang = () =>{
+	const changeLang = async () =>{
 		const locale = getCurrentLocale();
 		if(locale == "en") {
-			setlocale("zh-Hans");
+			await setlocale("zh-Hans");
 		} else {
-			setlocale("en");
+			await setlocale("en");
 		}
+		// #ifdef APP-PLUS
+		const page = getCurrentPages();
+		const currentPage = page[page.length - 1]?.route
+		uni.redirectTo({
+			url: currentPage,
+		})
+		// #endif
 	}
+
+	/**
+	 * 更新android端的tabbar的中英文
+	 */	
+	// #ifdef APP-PLUS
+	onShow(() => {
+		updateTabbarText();
+	})
+	// #endif
 	
 	const userStore = useUserStore();
 	//userStore.setUserName('这是认为设置的UserName的值')
@@ -61,16 +77,12 @@
 		
 	}
 	
-	let timer = null;
 	onMounted(()=>{
-		timer = setTimeout(()=>{ 
-			userStore.setUserName("onMounted执行完毕,所有页面已经渲染完毕后的title值");
-		}, 3000)
+		//userStore.setUserName("onMounted执行完毕,所有页面已经渲染完毕后的title值");
 	})
 	
 	onUnmounted(()=>{
-		clearTimeout(timer);
-		timer = null;
+		
 	})
 	
 	onActivated(async () => {
@@ -90,6 +102,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		flex:1;
 	}
 
 	.logo {

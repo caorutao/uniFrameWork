@@ -1,9 +1,8 @@
 <template>
-	<view class="flex-col-center">
-		<uni-badge type="error" :text="badge" absolute="rightTop" :offset="[-3, 0]">
-			<image class="img" :src="picName" mode="scaleToFill"></image>
-		</uni-badge>
-		<text  class="text-gray-600 text-sm font-medium scale text-ellipsis">{{remark}}</text>
+	<view class="flex-col-center align-items-center relative">
+		<uni-badge class="barge-z-index" type="error" :text="badge" absolute="rightTop" :offset="[-15,1]"></uni-badge>
+		<image class="img" :src="picName" mode="scaleToFill"></image>
+		<text  class="text-gray-600 text-sm font-medium text-ellipsis">{{remark}}</text>
 	</view>
 </template>
 
@@ -25,17 +24,22 @@
 </script>
 
 <style scoped>
+	.relative {
+		position: relative;
+	}
+	.align-items-center {
+		align-items: center;
+	}
 	.img {
-		width:20px;
-		height: 20px;
+		width: 30px;
+		height: 30px;
 	}
-	.scale {
-		transform: scale(0.85);
-	}
-	
-	.badge {
+	.badge-fix {
 		position: absolute;
-		top:0px;
-		right: 0px;
+		top:-10px;
+		right: -10px;
+	}
+	.barge-z-index {
+		z-index: 99!important;
 	}
 </style>

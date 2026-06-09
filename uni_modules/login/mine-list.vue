@@ -1,5 +1,5 @@
 <template>
-	<view class="mt-base mx-lg flex flex-row items-center justify-around pb-lg"
+	<view class="mt-base mx-base flex flex-row items-center justify-around pb-lg"
 		v-for="(item, index) in mineList" :key="index">
 		<listItem :pic-name='item.picName' :remark='item.remark' :badge="item.badge"></listItem>
 	</view>

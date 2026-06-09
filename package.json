@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "pinia": "^3.0.4",
     "pinia-plugin-persistedstate": "^4.7.1",
     "vuex": "^4.1.0"

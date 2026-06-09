@@ -1,3 +1,4 @@
+import { nextTick } from 'vue';
 import langEn from './en.js';
 import langzhHans from './zh-Hans.js';
 import {initVueI18n} from '@dcloudio/uni-i18n';
@@ -41,7 +42,7 @@ export const rt = t;
  * 切换语言（全局生效）
  * @param {string} locale 语言代码（zh-Hans/en）
  */
-export const setlocale = (locale) => {
+export const setlocale = async (locale) => {
 	// 1. 本地存储用户选择
 	uni.setStorageSync('locale', locale);
 	
@@ -51,15 +52,19 @@ export const setlocale = (locale) => {
 	// 3. 重新初始化i18n实例
 	i18nInstance = initVueI18n(message, locale);
 	
-	//4、更新TabBar文字
+	//4.更新TabBar文字
+	// #ifndef APP-PLUS
 	updateTabbarText();
+	// #endif
+	
 }
 
 /**
  * 更新TabBar文字（语言切换时自动调用）
  */
-const updateTabbarText = () => {
+export const updateTabbarText = () => {
 	const tabarList = rt("tabbar").split(',');
+	console.log('tabarList的值', JSON.stringify(tabarList))
 	tabarList.forEach((item, index)=> {
 		uni.setTabBarItem({
 			index,

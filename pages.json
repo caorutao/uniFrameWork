@@ -56,14 +56,14 @@
 		"backgroundColor": "#F8F8F8",
 		"list": [{
 				"pagePath": "pages/index/index",
-				"iconPath": "/static/component.svg",
-				"selectedIconPath": "/static/componentHL.svg",
+				"iconPath": "/static/component.png",
+				"selectedIconPath": "/static/componentHL.png",
 				"text": "首页"
 			},
 			{
 				"pagePath": "pages/api/index",
-				"iconPath": "static/api.svg",
-				"selectedIconPath": "static/apiHL.svg",
+				"iconPath": "static/api.png",
+				"selectedIconPath": "static/apiHL.png",
 				"text": "分类"
 			}, {
 				"pagePath": "pages/extui/index",

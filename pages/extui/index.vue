@@ -18,7 +18,8 @@
 			</view>
 		</view>
 	</view>
-	<my-fat ref="myfat" top="200rpx" left="150rpx" :contents="content" radius="25px"></my-fat>
+	<my-fat top="200rpx" left="150rpx" :contents="content" radius="25px"
+		@fabClick="fabClick" @fabItemClick="fabItemClick"></my-fat>
 </template>
 
 <script setup>
@@ -35,31 +36,40 @@
 	
 	const myfat = ref();
 	
-	const content = [
+	const content = ref([
 		{
 			icon: '/static/api.svg',
 			selectedIcon: '/static/apiHL.svg',
 			text: '项目1',
-			seleted:false
+			selected:false
 		}, 
 		{
 			icon: '/static/extui.png',
 			selectedIcon: '/static/extuiHL.png',
 			text: '项目2',
-			seleted:false
+			selected:false
 		},
 		{
 			icon: '/static/component.svg',
 			selectedIcon: '/static/componentHL.svg',
 			text: '项目3',
-			seleted:false
+			selected:false
 		},
 		{
 			icon: '/static/api.svg',
 			selectedIcon: '/static/apiHL.svg',
 			text: '项目4',
-			seleted:false
-		}];
+			selected:false
+		}]);
+	
+	const fabClick = () => {
+		
+	}
+	
+	const fabItemClick = (e) => {
+		content.value.forEach((item)=>item.selected=false); 
+		content.value[e.index].selected = !e.item.selected
+	}
 	
 </script>
 

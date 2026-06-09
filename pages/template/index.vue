@@ -8,7 +8,7 @@
 				<text class="mr-xs text-sm text-blue mr-lg">全部订单></text>
 			</navigator>
 		</view>
-		<view class="mt-base mx-lg flex flex-row items-center justify-around pb-base border-bt">
+		<view class="mt-lg mx-lg flex flex-row items-center justify-around pb-lg border-bt">
 			<mine-list :mine-list="mineOrder"></mine-list>
 		</view>
 		<view class='flex-row-between segment-Head mt-base'>
@@ -136,12 +136,12 @@
 	
 	
 	const login = function(e){
-		uni.showModal({
-			title: '提示',
-			content:'login的值:' + e + ", userName的值:" + userName.value,
-			confirmText:'确定',
-			showCancel: false
-		})
+		// uni.showModal({
+		// 	title: '提示',
+		// 	content:'login的值:' + e + ", userName的值:" + userName.value,
+		// 	confirmText:'确定',
+		// 	showCancel: false
+		// })
 	}
 	const badgeText = ref("15");
 	const avatar = ref("待付款");

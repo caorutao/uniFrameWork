@@ -7,11 +7,11 @@
 		</view>
 		<view class="fab" :class="{fab_active:isShow, 'mr-base':isShow, 'ml-xs': isShow, 'pb-5':isShow}"
 			:style="{width:boxWidth, gap:props.itemsGap}">
-			<view class='fabItem'
+			<view class='fabItem' :class="{fabItemSelected: item.selected}"
 				:style="fabItemStyle"
-				v-for="(item, index) in props.contents" :key="index" @tap="itemClick(index)">
-				<image class="img" :src="item.seleted?item?.selectedIcon:item?.icon" mode="scaleToFill"></image>
-				<text class="fabItem_text">{{item.text}}</text>
+				v-for="(item, index) in props.contents" :key="index" @tap="itemClick(index, item)">
+				<image class="img" :src="item.selected?item?.selectedIcon:item?.icon" mode="scaleToFill"></image>
+				<text class="fabItem_text" :style="{color: item.selected? styles.selectedColor:styles.color}">{{item.text}}</text>
 			</view>
 		</view>
 	</view>
@@ -72,6 +72,13 @@
 			default: '45rpx'
 		},
 	})
+	
+	/**
+	 * 父组件的emit方法
+	 * @event {Function} fabClick      展开菜单点击事件，返回点击信息
+	 * @event {Function} fabItemClick  点击fab菜单事件，返回点击信息
+	 */
+	const emit = defineEmits(['fabClick', 'fabItemClick']);
 	
 	/**
 	 * 用于处理fab组件的位置
@@ -154,6 +161,13 @@
 		return res? Number(res):0; 
 	}
 	
+	/**
+	 * fab子菜单点击时间
+	 */
+	const itemClick = (index, item) => {
+		emit('fabItemClick', {index, item});
+	}
+	
 </script>
 
 <style scoped lang="scss">
@@ -200,6 +214,9 @@
 		align-items: center;
 		justify-content: center;
 		transform: scale(0.9);
+	}
+	.fabItemSelected {
+		box-shadow:inset 2px 2px 4px #d0d0d0,inset -2px -2px 4px #ffffff;/*选中凹陷*/
 	}
 	.img {
 		width:26px;

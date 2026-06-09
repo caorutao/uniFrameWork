@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<view class="flex-row-between mt-base">
+		<view class="flex-row-between mt_img">
 			<slot>
 				<view class="loginitems ml-lg gap-base">
 					<image class="imageleft" :class="{'img': isHover}" src="/static/avatar.svg" 
@@ -49,8 +49,11 @@
 
 <style scoped lang="scss">
 	.content {
-		height: 200rpx;
+		height: 350rpx;
 		background-color: $haixin_lightlv;
+	}
+	.mt_img {
+		margin-top: 200rpx;
 	}
 	.imageleft {
 		width:30px;
@@ -67,10 +70,8 @@
 		flex-direction: row;
 		align-items: center;
 	}
-	.img {
-		
-	}
-	.img:hover {
+	
+	.img:active {
 		transition:0.2s;
 		transform:scale(1.5);
 	}
